@@ -1,4 +1,4 @@
-# Exams for CC0265 Probabilidade e Estatística
+# Exam Automation Template
 
 Files for exams done with [AMC](https://www.auto-multiple-choice.net/) latex package.
 
