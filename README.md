@@ -7,4 +7,4 @@ There is an extensive documentation on how to use AMC [here](https://www.auto-mu
 There was an effort to avoid repetition of questions, so the questions are stored in a separate file and imported to the exam file.
 
 Some questions use lua code to generate random numbers, so the questions are different for each student.
-These questions depend on having [LuaLaTex](https://www.overleaf.com/learn/latex/LuaLaTeX) installed.
+These questions depend on having [LuaLaTex](https://www.luatex.org/) installed.
