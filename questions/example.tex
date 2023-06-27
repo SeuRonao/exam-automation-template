@@ -1,0 +1,105 @@
+\element{example}{
+    \begin{question}{example-true-false}
+        Essa proposição é verdadeira.
+        \begin{choiceshoriz}[o] % o para fixar a ordem das alternativas
+            \correctchoice{Verdadeiro}
+            \wrongchoice{Falso}
+        \end{choiceshoriz}
+        \explain{Uma proposição verdadeira é verdadeira.}
+    \end{question}
+}
+
+\element{example}{
+    \begin{question}{example-multiple}
+        O que é igual à um em \(\mathbb{Z}\)?
+        \begin{choiceshoriz}
+            \correctchoice{1}
+            \wrongchoice{2}
+            \wrongchoice{3}
+            \wrongchoice{4}
+            \wrongchoice{5}
+        \end{choiceshoriz}
+        \explain{Só temos um \(1\) nos números inteiros!}
+    \end{question}
+}
+
+\element{example}{
+    \begin{questionmult}{example-multiple}
+        O que é igual à um em \(\mathbb{Z}_2\)?
+        \begin{choiceshoriz}
+            \correctchoice{1}
+            \wrongchoice{2}
+            \correctchoice{3}
+            \wrongchoice{4}
+            \correctchoice{5}
+        \end{choiceshoriz}
+        \explain{Todos os ímpares tem resto \(1\) quando divididos por \(2\).}
+    \end{questionmult}
+}
+
+\element{example}{
+    \begin{question}{example-lastchoices}\QuestionIndicative % desativa a contagem de pontos dessa questão
+        Qual cor?
+        \begin{choiceshoriz}
+            \wrongchoice{vermelho}
+            \wrongchoice{azul}
+            \wrongchoice{amarelo}
+            \lastchoices % fixa as últimas alternativas
+            \correctchoice{transparente}
+            \wrongchoice{não sei}
+        \end{choiceshoriz}
+        \explain{Não existe resposta correta.
+        Essa pergunta é só para mostrar que é possível fixar as últimas alternativas.
+        }
+    \end{question}
+}
+
+\element{example}{
+    \begin{question}{example-open}
+        Escreva \(\pi\) com duas casas decimais.
+        \AMCOpen{answer=3.14}{\wrongchoice[W]{w}\scoring{0}\wrongchoice[P]{p}\scoring{1}\correctchoice[C]{c}\scoring{2}}
+        \explain{O valor é \(3.14\).}
+    \end{question}
+}
+
+\element{example}{
+    \begin{question}{example-random-lua}
+        \directlua{
+            a = math.random(0, 10)
+            b = math.random(0, 10)
+        }
+        Quanto vale \(\directlua{tex.print(a)} + \directlua{tex.print(b)}\)?
+        \begin{choiceshoriz}
+            \wrongchoice{\directlua{tex.print(a+b+1)}}
+            \wrongchoice{\directlua{tex.print(a+b-1)}}
+            \correctchoice{\directlua{tex.print(a+b)}}
+            \wrongchoice{\directlua{tex.print(a+b+2)}}
+            \wrongchoice{\directlua{tex.print(a+b-2)}}
+        \end{choiceshoriz}
+    \end{question}
+}
+
+\element{example}{
+    \begin{questionmultx}{example-random-lua-open}
+        \directlua{
+            a = math.random(0, 100)
+            r = a^0.5
+        }
+        Quanto vale \(\sqrt{\directlua{tex.print(a)}}\)?
+        \AMCnumericChoices{\directlua{tex.print(r)}}{digits=5, decimals=2}
+        \explain{O valor é \(\directlua{tex.print(r)}\).}
+    \end{questionmultx}
+}
+
+\element{example}{
+    \begin{questionmultx}{example-lua-import}
+        \directlua{
+            module = require("/home/seuronao/projects/seuronao/exam-cc0265-prob-est/utils/example.lua")
+            a = math.random(-9, 9)
+            b = math.random(-9, 9)
+            resposta = module.mult(a, b)
+        }
+        Quanto vale \(\directlua{tex.print(a)} \times \directlua{tex.print(b)}\)?
+        \AMCnumericChoices{\directlua{tex.print(resposta)}}{digits=2}
+    \end{questionmultx}
+}

@@ -1,0 +1,34 @@
+\documentclass[a4paper]{article}
+\RequirePackage{etex}
+\usepackage{import}
+% \usepackage[utf8]{inputenc} % disabled due to using LuaTex
+\usepackage[T1]{fontenc}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage[catalog, lang=PT]{automultiplechoice}
+
+% Exam Information
+\newcommand{\ExamTitle}{\textbf{COURSE NAME\hfill Catálogo de Questões}}
+\newcommand{\ExamDate}{2023}
+
+% Commands to import the files with the questions
+\import{../questions}{example}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Document starts here
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%% beginning of the test sheet header:
+\noindent{\ExamTitle}
+\vspace*{.5cm}
+\begin{minipage}{.4\linewidth}
+    \centering\large\textbf{\ExamDate}
+\end{minipage}
+%%% end of the header
+
+\section{Exemplos de questões}
+\insertgroup{example}
+\end{document}
