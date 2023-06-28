@@ -5,4 +5,7 @@
 *.log
 *.synctex.gz
 *.pdf
+!docs/*.pdf
 *.cs
+pythontex-files-*
+*.pytxcode

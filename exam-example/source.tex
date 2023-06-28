@@ -1,36 +1,51 @@
+%%AMC:preprocess_command=/absolute/path/to/prePythonTex4AMC.sh
+%%AMC:jobspecific=1
+%%AMC:latex_engine=latexmk -lualatex -interaction=nonstopmode
 \documentclass[a4paper]{article}
 \RequirePackage{etex}
 \usepackage{import}
 % \usepackage[utf8]{inputenc} % disabled due to using LuaTex
-\usepackage[T1]{fontenc}
+% \usepackage[T1]{fontenc} % disabled due to using LuaTex
+\usepackage{fontspec} % for LuaTex
 \usepackage{multicol}
 \usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{color}
-\usepackage[lang=PT]{automultiplechoice}
+\usepackage[lang=en]{automultiplechoice}
+\usepackage{pythontex}
 
 % Exam Information
-\newcommand{\ExamTitle}{\textbf{COURSE NAME\hfill 1\textordfeminine Avaliação (1\textordfeminine Chamada)}}
-\newcommand{\ExamDate}{DD de MMMM de YYYY}
+\newcommand{\ExamTitle}{\textbf{COURSE NAME\hfill 1\textsuperscript{st} Exam (1\textsuperscript{st} Call)}}
+\newcommand{\ExamDate}{\today}
+
+% Commands to set the random seed (1/2)
+\begin{pycode}
+import random
+random.seed(10)
+\end{pycode}
 
 % Commands to import the files with the questions
 % IMPORTANT: must be changed to absolute path when using the AMC software
 \import{../questions}{example}
+\import{../questions}{example-lua}
+\import{../questions}{example-python}
 
 %%%%%%%%%%%%%%%%%%%%%%
 % Document starts here
 %%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-% Random Seeds to avoid problems with compilation after passing the file to the AMC software
+% Commands to set the random seed (2/2)
 \AMCrandomseed{10}
 \directlua{math.randomseed(10)}
 
 % Creating the group here enforces that all questions are the same among all the copies of the exam.
 \cleargroup{all}
 \copygroup{example}{all}
+\copygroup{example-lua}{all}
+\copygroup{example-python}{all}
 
-\begin{examcopy}[50]
+\begin{examcopy}[5]
 	%%% beginning of the test sheet header:
 	\noindent{\ExamTitle}
 	\vspace*{.5cm}
@@ -38,20 +53,19 @@
 		\centering\large\textbf{\ExamDate}
 	\end{minipage}
 	\begin{center}
-		\emph{Duração: 2 horas.}\\
-		\emph{Não é permitido conversar com o colega.}\\
-		\emph{Preencha o quadrado completamente!}
+		\emph{Duration: 2 hours.}\\
+		\emph{Talking and Electronic devices are forbidden.}\\
+		\emph{Completely fill the correct squares!}
 	\end{center}
 	{\setlength{\parindent}{0pt}\hspace*{\fill}\AMCcodeGridInt{etu}{6}\hspace*{\fill}
 	\begin{minipage}[b]{6.5cm}
-		\(\longleftarrow\)\hspace{1cm} escreva o seu número de matrícula ao lado,
-		e o seu nome e sobrenomes abaixo.
+		\(\longleftarrow\)\hspace{1cm} Write your name below and fill your \emph{id} number to the side.
 
 		\vspace{3ex}
 
 		\hfill\namefield{\fbox{
 				\begin{minipage}{.9\linewidth}
-					Nome e Sobrenome:
+					Name and Surname:
 
 					\vspace*{.5cm}\dotfill
 

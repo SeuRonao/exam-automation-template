@@ -2,25 +2,37 @@
 \RequirePackage{etex}
 \usepackage{import}
 % \usepackage[utf8]{inputenc} % disabled due to using LuaTex
-\usepackage[T1]{fontenc}
+% \usepackage[T1]{fontenc} % disabled due to using LuaTex
+\usepackage{fontspec} % for LuaTex
 \usepackage{multicol}
 \usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{color}
-\usepackage[catalog, lang=PT]{automultiplechoice}
+\usepackage[catalog, lang=en]{automultiplechoice}
+\usepackage{pythontex}
 
 % Exam Information
-\newcommand{\ExamTitle}{\textbf{COURSE NAME\hfill Catálogo de Questões}}
-\newcommand{\ExamDate}{2023}
+\newcommand{\ExamTitle}{\textbf{COURSE NAME\hfill Question Catalog}}
+\newcommand{\ExamDate}{\today}
+
+% Commands to set the random seed (1/2)
+\begin{pycode}
+import random
+random.seed(1)
+\end{pycode}
 
 % Commands to import the files with the questions
 \import{../questions}{example}
+\import{../questions}{example-lua}
+\import{../questions}{example-python}
 
 %%%%%%%%%%%%%%%%%%%%%%
 % Document starts here
 %%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+% Commands to set the random seed (2/2)
+\AMCrandomseed{1}
 %%% beginning of the test sheet header:
 \noindent{\ExamTitle}
 \vspace*{.5cm}
@@ -29,6 +41,10 @@
 \end{minipage}
 %%% end of the header
 
-\section{Exemplos de questões}
+\section{Question Samples}
 \insertgroup{example}
+\section{Question Samples with Lua Code}
+\insertgroup{example-lua}
+\section{Question Samples with Python Code}
+\insertgroup{example-python}
 \end{document}
