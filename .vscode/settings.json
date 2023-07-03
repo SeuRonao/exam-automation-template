@@ -2,26 +2,13 @@
     "latex-workshop.latex.autoBuild.run": "never",
     "latex-workshop.latex.tools": [
         {
-            "name": "latexmk",
-            "command": "latexmk",
+            "name": "lualatex",
+            "command": "lualatex",
             "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
                 "-pdf",
-                "-outdir=%OUTDIR%",
-                "%DOC%"
-            ],
-            "env": {}
-        },
-        {
-            "name": "lualatexmk",
-            "command": "latexmk",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "-lualatex",
                 "-outdir=%OUTDIR%",
                 "%DOC%"
             ],
@@ -38,21 +25,20 @@
     ],
     "latex-workshop.latex.recipes": [
         {
-            "name": "latexmk (lualatex)",
+            "name": "lualatex and pythontex",
             "tools": [
-                "lualatexmk",
+                "lualatex",
                 "pythontex",
-                "lualatexmk"
-            ]
-        },
-        {
-            "name": "latexmk",
-            "tools": [
-                "latexmk"
+                "lualatex"
             ]
         },
     ],
     "cSpell.words": [
+        "jobspecific",
+        "lualatex",
+        "nonstopmode",
+        "pathlib",
+        "preprocess",
         "xbar"
     ],
 }
