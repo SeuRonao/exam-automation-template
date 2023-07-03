@@ -23,3 +23,14 @@
         \explain{The value is \(\py{r}\).}
     \end{questionmultx}
 }
+
+\element{example-python}{
+    \begin{questionmultx}{example-python-import}
+        \pyc{a = random.randint(0, 100)}
+        \pyc{b = random.randint(0, 100)}
+        \pyc{result = example_python.multiply(a, b)}
+        How much is \(\py{a} \times \py{b}\)?
+        \pys{\AMCnumericChoices{!{result}}{digits=6}}
+        \explain{The value is \(\py{result}\).}
+    \end{questionmultx}
+}

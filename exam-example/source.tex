@@ -1,6 +1,6 @@
 %%AMC:preprocess_command=/absolute/path/to/prePythonTex4AMC.sh
 %%AMC:jobspecific=1
-%%AMC:latex_engine=latexmk -lualatex -interaction=nonstopmode
+%%AMC:latex_engine=lualatex --interaction=nonstopmode --shell-escape
 \documentclass[a4paper]{article}
 \RequirePackage{etex}
 \usepackage{import}
@@ -25,6 +25,15 @@ import random
 random.seed(10)
 \end{pycode}
 
+% Commands to import the python files for the questions
+\begin{pycode}
+import sys
+from pathlib import Path
+absolute_path_string = '../questions' # IMPORTANT: must be changed to absolute path when using the AMC software
+sys.path.append(str(Path(absolute_path_string).resolve()))
+import example_python
+\end{pycode}
+	
 % Commands to import the files with the questions
 % IMPORTANT: must be changed to absolute path when using the AMC software
 \import{../questions}{example}

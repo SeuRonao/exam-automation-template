@@ -9,3 +9,4 @@
 *.cs
 pythontex-files-*
 *.pytxcode
+__pycache__
