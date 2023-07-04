@@ -23,7 +23,7 @@
             r = a^0.5
         }
         How much is \(\sqrt{\directlua{tex.print(a)}}\)?
-        \AMCnumericChoices{\directlua{tex.print(r)}}{digits=5, decimals=2}
+        \AMCnumericChoices{\directlua{tex.print(r)}}{digits=4, decimals=2}
         \explain{The value is \(\directlua{tex.print(r)}\).}
     \end{questionmultx}
 }
@@ -31,10 +31,9 @@
 \element{example-lua}{
     \begin{questionmultx}{example-lua-import}
         \directlua{
-            module = require("/home/seuronao/projects/seuronao/exam-cc0265-prob-est/utils/example.lua")
             a = math.random(-9, 9)
             b = math.random(-9, 9)
-            resposta = module.mult(a, b)
+            resposta = example_lua.mult(a, b)
         }
         How much is \(\directlua{tex.print(a)} \times \directlua{tex.print(b)}\)?
         \AMCnumericChoices{\directlua{tex.print(resposta)}}{digits=2}

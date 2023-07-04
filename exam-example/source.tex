@@ -15,6 +15,17 @@
 \usepackage[lang=en]{automultiplechoice}
 \usepackage{pythontex}
 
+% This command is used to show the solution of the question for each individual student, if you don't want to show the solution, comment it out.
+\makeatletter
+\renewcommand{\explain}[1]{%
+  \ifAMC@correc%
+  \AMCif@env{question}{\par\noindent{\AMC@loc@explain#1}}{\AMC@error@explain}\vspace{1ex}%
+  \else%
+  \AMCif@env{question}{}{\AMC@error@explain}%
+  \fi%
+}
+\makeatother
+
 % Exam Information
 \newcommand{\ExamTitle}{\textbf{COURSE NAME\hfill 1\textsuperscript{st} Exam (1\textsuperscript{st} Call)}}
 \newcommand{\ExamDate}{\today}
@@ -25,6 +36,13 @@ import random
 random.seed(10)
 \end{pycode}
 
+% Commands to import the lua files for the questions
+% IMPORTANT: must be changed to absolute path when using the AMC software
+\directlua{
+example_lua = require "../questions/example_lua"
+}
+
+
 % Commands to import the python files for the questions
 \begin{pycode}
 import sys
@@ -33,7 +51,7 @@ absolute_path_string = '../questions' # IMPORTANT: must be changed to absolute p
 sys.path.append(str(Path(absolute_path_string).resolve()))
 import example_python
 \end{pycode}
-	
+
 % Commands to import the files with the questions
 % IMPORTANT: must be changed to absolute path when using the AMC software
 \import{../questions}{example}

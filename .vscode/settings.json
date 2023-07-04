@@ -39,6 +39,7 @@
         "nonstopmode",
         "pathlib",
         "preprocess",
+        "pythontex",
         "xbar"
     ],
 }

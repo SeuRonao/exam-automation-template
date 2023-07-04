@@ -19,18 +19,18 @@
         \pyc{a = random.randint(0, 100)}
         \pyc{r = a**0.5}
         How much is \(\sqrt{\py{a}}\)?
-        \pys{\AMCnumericChoices{!{r}}{digits=5, decimals=2}}
+        \pys{\AMCnumericChoices{!{r}}{digits=4, decimals=2}}
         \explain{The value is \(\py{r}\).}
     \end{questionmultx}
 }
 
 \element{example-python}{
     \begin{questionmultx}{example-python-import}
-        \pyc{a = random.randint(0, 100)}
-        \pyc{b = random.randint(0, 100)}
+        \pyc{a = random.randint(-10, 10)}
+        \pyc{b = random.randint(-10, 10)}
         \pyc{result = example_python.multiply(a, b)}
         How much is \(\py{a} \times \py{b}\)?
-        \pys{\AMCnumericChoices{!{result}}{digits=6}}
+        \pys{\AMCnumericChoices{!{result}}{digits=2}}
         \explain{The value is \(\py{result}\).}
     \end{questionmultx}
 }
