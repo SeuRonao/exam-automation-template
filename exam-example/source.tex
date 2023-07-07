@@ -13,16 +13,16 @@
 \usepackage{amssymb}
 \usepackage{color}
 \usepackage[lang=en]{automultiplechoice}
-\usepackage[rerun=always]{pythontex}
+\usepackage[gobble=auto, rerun=always]{pythontex}
 
 % This command is used to show the solution of the question for each individual student, if you don't want to show the solution, comment it out.
 \makeatletter
 \renewcommand{\explain}[1]{%
-  \ifAMC@correc%
-  \AMCif@env{question}{\par\noindent{\AMC@loc@explain#1}}{\AMC@error@explain}\vspace{1ex}%
-  \else%
-  \AMCif@env{question}{}{\AMC@error@explain}%
-  \fi%
+	\ifAMC@correc%
+		\AMCif@env{question}{\par\noindent{\AMC@loc@explain#1}}{\AMC@error@explain}\vspace{1ex}%
+	\else%
+		\AMCif@env{question}{}{\AMC@error@explain}%
+	\fi%
 }
 \makeatother
 
@@ -32,24 +32,21 @@
 
 % Commands to set the random seed (1/2)
 \begin{pycode}
-import random
-random.seed(10)
+	import random
+	random.seed(10)
 \end{pycode}
 
 % Commands to import the lua files for the questions
 % IMPORTANT: must be changed to absolute path when using the AMC software
-\directlua{
-example_lua = require "../questions/example_lua"
-}
-
+\luadirect{example_lua = require "../questions/example_lua"}
 
 % Commands to import the python files for the questions
 \begin{pycode}
-import sys
-from pathlib import Path
-absolute_path_string = '../questions' # IMPORTANT: must be changed to absolute path when using the AMC software
-sys.path.append(str(Path(absolute_path_string).resolve()))
-import example_python
+	import sys
+	from pathlib import Path
+	absolute_path_string = '../questions' # IMPORTANT: must be changed to absolute path when using the AMC software
+	sys.path.append(str(Path(absolute_path_string).resolve()))
+	import example_python
 \end{pycode}
 
 % Commands to import the files with the questions
@@ -64,7 +61,7 @@ import example_python
 \begin{document}
 % Commands to set the random seed (2/2)
 \AMCrandomseed{10}
-\directlua{math.randomseed(10)}
+\luadirect{math.randomseed(10)}
 
 % Creating the group here enforces that all questions are the same among all the copies of the exam.
 \cleargroup{all}

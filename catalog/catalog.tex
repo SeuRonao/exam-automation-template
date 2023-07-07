@@ -10,7 +10,8 @@
 \usepackage{amssymb}
 \usepackage{color}
 \usepackage[catalog, lang=en]{automultiplechoice}
-\usepackage[rerun=always]{pythontex}
+\usepackage[gobble=auto, rerun=always]{pythontex}
+\usepackage{luacode}
 
 % Exam Information
 \newcommand{\ExamTitle}{\textbf{COURSE NAME\hfill Question Catalog}}
@@ -18,22 +19,20 @@
 
 % Commands to set the random seed (1/2)
 \begin{pycode}
-import random
-random.seed(1)
+	import random
+	random.seed(1)
 \end{pycode}
 
 % Commands to import the lua files for the questions
-\directlua{
-example_lua = require "../questions/example_lua"
-}
+\luadirect{example_lua = require "../questions/example_lua"}
 
 % Commands to import the python files for the questions
 \begin{pycode}
-import sys
-from pathlib import Path
-absolute_path_string = '../questions' # Questions folder
-sys.path.append(str(Path(absolute_path_string).resolve()))
-import example_python
+	import sys
+	from pathlib import Path
+	absolute_path_string = '../questions' # Questions folder
+	sys.path.append(str(Path(absolute_path_string).resolve()))
+	import example_python
 \end{pycode}
 
 % Commands to import the files with the questions
@@ -47,12 +46,12 @@ import example_python
 \begin{document}
 % Commands to set the random seed (2/2)
 \AMCrandomseed{1}
-\directlua{math.randomseed(1)}
+\luadirect{math.randomseed(1)}
 %%% beginning of the test sheet header:
 \noindent{\ExamTitle}
 \vspace*{.5cm}
 \begin{minipage}{.4\linewidth}
-    \centering\large\textbf{\ExamDate}
+	\centering\large\textbf{\ExamDate}
 \end{minipage}
 %%% end of the header
 
@@ -60,9 +59,9 @@ These questions use the \texttt{Auto Multiple Choice} package without any additi
 Some examples can be found below:
 
 \begin{description}
-    \item[Multiple Choice:] questions with only one correct answer, multiple correct answers, and even questions with no correct answers.
-    \item[Open Questions:] open space for the student to write a short answer or a long answer.
-    \item[Range:] It is also possible to have a numeric question with a range of accepted answers.
+	\item[Multiple Choice:] questions with only one correct answer, multiple correct answers, and even questions with no correct answers.
+	\item[Open Questions:] open space for the student to write a short answer or a long answer.
+	\item[Range:] It is also possible to have a numeric question with a range of accepted answers.
 \end{description}
 
 \section{Question Samples}
@@ -88,7 +87,7 @@ Code can be used to generate random numbers so that each realization or copy of 
 
 It is necessary to use the \texttt{pythontex} package to compile the document when python code is present.
 
-There are some minor inconveniences, such as the need to use the commands \texttt{\textbackslash pyc{}} and \texttt{\textbackslash py{}} to run python code inside questions.
+There are some minor inconveniences, such as the need to use the commands \texttt{\textbackslash{}pyc{}} and \texttt{\textbackslash{}py{}} to run python code inside questions.
 
 However due to the popularity of \texttt{Python}, it is possible to use many libraries and packages to generate questions.
 

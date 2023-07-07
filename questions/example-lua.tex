@@ -1,42 +1,42 @@
 \element{example-lua}{
-    \begin{question}{example-lua-random}
-        \directlua{
-            a = math.random(0, 10)
-            b = math.random(0, 10)
-        }
-        How much is \(\directlua{tex.print(a)} + \directlua{tex.print(b)}\)?
-        \begin{choiceshoriz}
-            \wrongchoice{\directlua{tex.print(a+b-2)}}
-            \wrongchoice{\directlua{tex.print(a+b-1)}}
-            \correctchoice{\directlua{tex.print(a+b)}}
-            \wrongchoice{\directlua{tex.print(a+b+1)}}
-            \wrongchoice{\directlua{tex.print(a+b+2)}}
-        \end{choiceshoriz}
-        \explain{The value is \(\directlua{tex.print(a+b)}\).}
-    \end{question}
+	\begin{question}{example-lua-random}
+		\begin{luacode}
+			a = math.random(0, 10)
+			b = math.random(0, 10)
+		\end{luacode}
+		How much is \(\directlua{tex.print(a)} + \directlua{tex.print(b)}\)?
+		\begin{choiceshoriz}
+			\wrongchoice{\directlua{tex.print(a+b-2)}}
+			\wrongchoice{\directlua{tex.print(a+b-1)}}
+			\correctchoice{\directlua{tex.print(a+b)}}
+			\wrongchoice{\directlua{tex.print(a+b+1)}}
+			\wrongchoice{\directlua{tex.print(a+b+2)}}
+		\end{choiceshoriz}
+		\explain{The value is \(\directlua{tex.print(a+b)}\).}
+	\end{question}
 }
 
 \element{example-lua}{
-    \begin{questionmultx}{example-lua-random-open}
-        \directlua{
-            a = math.random(0, 100)
-            r = a^0.5
-        }
-        How much is \(\sqrt{\directlua{tex.print(a)}}\)?
-        \AMCnumericChoices{\directlua{tex.print(r)}}{digits=4, decimals=2}
-        \explain{The value is \(\directlua{tex.print(r)}\).}
-    \end{questionmultx}
+	\begin{questionmultx}{example-lua-random-open}
+		\begin{luacode}
+			a = math.random(0, 100)
+			r = a^0.5
+		\end{luacode}
+		How much is \(\sqrt{\directlua{tex.print(a)}}\)?
+		\AMCnumericChoices{\directlua{tex.print(r)}}{digits=4, decimals=2}
+		\explain{The value is \(\directlua{tex.print(r)}\).}
+	\end{questionmultx}
 }
 
 \element{example-lua}{
-    \begin{questionmultx}{example-lua-import}
-        \directlua{
-            a = math.random(-9, 9)
-            b = math.random(-9, 9)
-            resposta = example_lua.mult(a, b)
-        }
-        How much is \(\directlua{tex.print(a)} \times \directlua{tex.print(b)}\)?
-        \AMCnumericChoices{\directlua{tex.print(resposta)}}{digits=2}
-        \explain{The value is \(\directlua{tex.print(resposta)}\).}
-    \end{questionmultx}
+	\begin{questionmultx}{example-lua-import}
+		\begin{luacode}
+			a = math.random(-9, 9)
+			b = math.random(-9, 9)
+			resposta = example_lua.mult(a, b)
+		\end{luacode}
+		How much is \(\directlua{tex.print(a)} \times \directlua{tex.print(b)}\)?
+		\AMCnumericChoices{\directlua{tex.print(resposta)}}{digits=2}
+		\explain{The value is \(\directlua{tex.print(resposta)}\).}
+	\end{questionmultx}
 }

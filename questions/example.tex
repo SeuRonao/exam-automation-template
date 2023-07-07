@@ -1,61 +1,61 @@
 \element{example}{
-    \begin{question}{example-true-false}
-        This proposition is true.
-        \begin{choiceshoriz}[o] % fix order of alternatives even with shuffling enabled
-            \correctchoice{True}
-            \wrongchoice{False}
-        \end{choiceshoriz}
-        \explain{A true statement is true.}
-    \end{question}
+	\begin{question}{example-true-false}
+		This proposition is true.
+		\begin{choiceshoriz}[o] % fix order of alternatives even with shuffling enabled
+			\correctchoice{True}
+			\wrongchoice{False}
+		\end{choiceshoriz}
+		\explain{A true statement is true.}
+	\end{question}
 }
 
 \element{example}{
-    \begin{question}{example-one-choice}
-        What is equal to one in \(\mathbb{Z}\)?
-        \begin{choiceshoriz}
-            \correctchoice{1}
-            \wrongchoice{2}
-            \wrongchoice{3}
-            \wrongchoice{4}
-            \wrongchoice{5}
-        \end{choiceshoriz}
-        \explain{There is only one \(1\) in the set of integers.}
-    \end{question}
+	\begin{question}{example-one-choice}
+		What is equal to one in \(\mathbb{Z}\)?
+		\begin{choiceshoriz}
+			\correctchoice{1}
+			\wrongchoice{2}
+			\wrongchoice{3}
+			\wrongchoice{4}
+			\wrongchoice{5}
+		\end{choiceshoriz}
+		\explain{There is only one \(1\) in the set of integers.}
+	\end{question}
 }
 
 \element{example}{
-    \begin{questionmult}{example-multiple-choice}
-        Which below are the odd numbers?
-        \begin{choiceshoriz}
-            \correctchoice{1}
-            \wrongchoice{2}
-            \correctchoice{3}
-            \wrongchoice{4}
-            \correctchoice{5}
-        \end{choiceshoriz}
-        \explain{All odd numbers are divisible by \(2\).}
-    \end{questionmult}
+	\begin{questionmult}{example-multiple-choice}
+		Which below are the odd numbers?
+		\begin{choiceshoriz}
+			\correctchoice{1}
+			\wrongchoice{2}
+			\correctchoice{3}
+			\wrongchoice{4}
+			\correctchoice{5}
+		\end{choiceshoriz}
+		\explain{All odd numbers are divisible by \(2\).}
+	\end{questionmult}
 }
 
 \element{example}{
-    \begin{question}{example-lastchoices}\QuestionIndicative % this question is not taken into account for scoring
-        Which color do you prefer?
-        \begin{choiceshoriz}
-            \correctchoice{red}
-            \correctchoice{green}
-            \correctchoice{blue}
-            \lastchoices % these last options are always fixed even with shuffling enabled
-            \correctchoice{I don't care}
-            \correctchoice{I don't know}
-        \end{choiceshoriz}
-        \explain{There is no wrong answer.}
-    \end{question}
+	\begin{question}{example-lastchoices}\QuestionIndicative% this question is not taken into account for scoring
+		Which color do you prefer?
+		\begin{choiceshoriz}
+			\correctchoice{red}
+			\correctchoice{green}
+			\correctchoice{blue}
+			\lastchoices% these last options are always fixed even with shuffling enabled
+			\correctchoice{I don't care}
+			\correctchoice{I don't know}
+		\end{choiceshoriz}
+		\explain{There is no wrong answer.}
+	\end{question}
 }
 
 \element{example}{
-    \begin{question}{example-open}
-        Write \(\pi\) with two decimal places.
-        \AMCOpen{answer=3.14}{\wrongchoice[W]{w}\scoring{0}\wrongchoice[P]{p}\scoring{1}\correctchoice[C]{c}\scoring{2}}
-        \explain{\(\pi = 3.14\).}
-    \end{question}
+	\begin{question}{example-open}
+		Write \(\pi\) with two decimal places.
+		\AMCOpen{answer=3.14}{\wrongchoice[W]{w}\scoring{0}\wrongchoice[P]{p}\scoring{1}\correctchoice[C]{c}\scoring{2}}
+		\explain{\(\pi = 3.14\).}
+	\end{question}
 }

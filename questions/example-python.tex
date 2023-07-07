@@ -1,36 +1,36 @@
 \element{example-python}{
-    \begin{question}{example-python-random}
-        \pyc{a = random.randint(0, 10)}
-        \pyc{b = random.randint(0, 10)}
-        How much is \(\py{a} + \py{b}\)?
-        \begin{choiceshoriz}
-            \wrongchoice{\py{a+b-2}}
-            \wrongchoice{\py{a+b-1}}
-            \correctchoice{\py{a+b}}
-            \wrongchoice{\py{a+b+1}}
-            \wrongchoice{\py{a+b+2}}
-        \end{choiceshoriz}
-        \explain{The value is \(\py{a+b}\).}
-    \end{question}
+	\begin{question}{example-python-random}
+		\pyc{a = random.randint(0, 10)}
+		\pyc{b = random.randint(0, 10)}
+		How much is \(\py{a} + \py{b}\)?
+		\begin{choiceshoriz}
+			\wrongchoice{\py{a+b-2}}
+			\wrongchoice{\py{a+b-1}}
+			\correctchoice{\py{a+b}}
+			\wrongchoice{\py{a+b+1}}
+			\wrongchoice{\py{a+b+2}}
+		\end{choiceshoriz}
+		\explain{The value is \(\py{a+b}\).}
+	\end{question}
 }
 
 \element{example-python}{
-    \begin{questionmultx}{example-python-random-open}
-        \pyc{a = random.randint(0, 100)}
-        \pyc{r = a**0.5}
-        How much is \(\sqrt{\py{a}}\)?
-        \pys{\AMCnumericChoices{!{r}}{digits=4, decimals=2}}
-        \explain{The value is \(\py{r}\).}
-    \end{questionmultx}
+	\begin{questionmultx}{example-python-random-open}
+		\pyc{a = random.randint(0, 100)}
+		\pyc{r = a**0.5}
+		How much is \(\sqrt{\py{a}}\)?
+		\pys{\AMCnumericChoices{!{r}}{digits=4, decimals=2}}
+		\explain{The value is \(\py{r}\).}
+	\end{questionmultx}
 }
 
 \element{example-python}{
-    \begin{questionmultx}{example-python-import}
-        \pyc{a = random.randint(-10, 10)}
-        \pyc{b = random.randint(-10, 10)}
-        \pyc{result = example_python.multiply(a, b)}
-        How much is \(\py{a} \times \py{b}\)?
-        \pys{\AMCnumericChoices{!{result}}{digits=2}}
-        \explain{The value is \(\py{result}\).}
-    \end{questionmultx}
+	\begin{questionmultx}{example-python-import}
+		\pyc{a = random.randint(-10, 10)}
+		\pyc{b = random.randint(-10, 10)}
+		\pyc{result = example_python.multiply(a, b)}
+		How much is \(\py{a} \times \py{b}\)?
+		\pys{\AMCnumericChoices{!{result}}{digits=2}}
+		\explain{The value is \(\py{result}\).}
+	\end{questionmultx}
 }

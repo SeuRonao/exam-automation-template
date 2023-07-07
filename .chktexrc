@@ -1,0 +1,10 @@
+VerbEnvir
+{
+    verbatim comment listing verbatimtab rawhtml errexam picture texdraw
+    filecontents pgfpicture tikzpicture minted luacode pycode
+}
+
+WipeArg
+{
+    \directlua:{} \luadirect:{} \py:[]{} \pyc:[]{} \pys:[]{}
+}
