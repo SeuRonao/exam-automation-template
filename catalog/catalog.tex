@@ -55,16 +55,19 @@
 \end{minipage}
 %%% end of the header
 
-These questions use the \texttt{Auto Multiple Choice} package without any additional code.
-Some examples can be found below:
+The \texttt{Auto Multiple Choice} can be used alongside \texttt{Lua} or \texttt{Python} code to generate random numbers so that each realization or copy of the exam has different numbers for these questions.
+
+There are some tipes of questions that are well suited for use with the software:
 
 \begin{description}
 	\item[Multiple Choice:] questions with only one correct answer, multiple correct answers, and even questions with no correct answers.
-	\item[Open Questions:] open space for the student to write a short answer or a long answer.
 	\item[Range:] It is also possible to have a numeric question with a range of accepted answers.
+	\item[Open Questions:] open space for the student to write a short answer or a long answer. These questions can be corrected by the teacher.
 \end{description}
 
 \section{Question Samples}
+
+These questions do not make use of any external or internal code with \texttt{Lua} or \texttt{Python}.
 
 \insertgroup{example}
 
@@ -74,6 +77,9 @@ These questions use the \texttt{Auto Multiple Choice} package with \texttt{Lua} 
 Code can be used to generate random numbers so that each realization or copy of the exam has different numbers for these questions.
 
 It is necessary to use the \texttt{LuaTex} engine to compile the document when lua code is present.
+
+There are some minor inconveniences, such as the need to use the commands \texttt{\textbackslash{}luadirect{}} or \texttt{\textbackslash{}directlua{}} to run lua code inside questions.
+
 Some examples can be found below:
 
 \insertgroup{example-lua}

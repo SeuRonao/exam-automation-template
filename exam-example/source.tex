@@ -12,8 +12,9 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{color}
-\usepackage[lang=en]{automultiplechoice}
+\usepackage[indivanswers, lang=en]{automultiplechoice}
 \usepackage[gobble=auto, rerun=always]{pythontex}
+\usepackage{luacode}
 
 % This command is used to show the solution of the question for each individual student, if you don't want to show the solution, comment it out.
 \makeatletter
@@ -83,7 +84,7 @@
 	\end{center}
 	{\setlength{\parindent}{0pt}\hspace*{\fill}\AMCcodeGridInt{etu}{6}\hspace*{\fill}
 	\begin{minipage}[b]{6.5cm}
-		\(\longleftarrow\)\hspace{1cm} Write your name below and fill your \emph{id} number to the side.
+		\(\longleftarrow{}\)\hspace{1cm} Write your name below and fill your \emph{id} number to the side.
 
 		\vspace{3ex}
 
