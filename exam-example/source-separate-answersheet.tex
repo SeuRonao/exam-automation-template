@@ -1,0 +1,112 @@
+%%AMC:preprocess_command=/absolute/path/to/prePythonTex4AMC.sh
+%%AMC:jobspecific=1
+%%AMC:latex_engine=lualatex --interaction=nonstopmode --shell-escape
+\documentclass[a4paper]{article}
+\RequirePackage{etex}
+\usepackage{import}
+% \usepackage[utf8]{inputenc} % disabled due to using LuaTex
+% \usepackage[T1]{fontenc} % disabled due to using LuaTex
+\usepackage{fontspec} % for LuaTex
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage[lang=en, separateanswersheet, outsidebox, asbox]{automultiplechoice}
+\usepackage[gobble=auto, rerun=always]{pythontex}
+\usepackage{luacode}
+
+% This command is used to show the solution of the question for each individual student, if you don't want to show the solution, comment it out.
+\makeatletter
+\renewcommand{\explain}[1]{%
+	\ifAMC@correc%
+		\AMCif@env{question}{\par\noindent{\AMC@loc@explain#1}}{\AMC@error@explain}\vspace{1ex}%
+	\else%
+		\AMCif@env{question}{}{\AMC@error@explain}%
+	\fi%
+}
+\makeatother
+
+% Exam Information
+\newcommand{\ExamTitle}{\textbf{COURSE NAME\hfill 1\textsuperscript{st} Exam (1\textsuperscript{st} Call)}}
+\newcommand{\ExamDate}{\today}
+
+% Commands to set the random seed (1/2)
+\begin{pycode}
+	import random
+	random.seed(10)
+\end{pycode}
+
+% Commands to import the lua files for the questions
+% IMPORTANT: must be changed to absolute path when using the AMC software
+\luadirect{example_lua = require "../questions/example_lua"}
+
+% Commands to import the python files for the questions
+\begin{pycode}
+	import sys
+	from pathlib import Path
+	absolute_path_string = '../questions' # IMPORTANT: must be changed to absolute path when using the AMC software
+	sys.path.append(str(Path(absolute_path_string).resolve()))
+	import example_python
+\end{pycode}
+
+% Commands to import the files with the questions
+% IMPORTANT: must be changed to absolute path when using the AMC software
+\import{../questions}{example}
+\import{../questions}{example-lua}
+\import{../questions}{example-python}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Document starts here
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% Commands to set the random seed (2/2)
+\AMCrandomseed{10}
+\luadirect{math.randomseed(10)}
+
+% Creating the group here enforces that all questions are the same among all the copies of the exam.
+\cleargroup{all}
+\copygroup{example}{all}
+\copygroup{example-lua}{all}
+\copygroup{example-python}{all}
+
+\begin{examcopy}[5]
+	%%% beginning of the test sheet header:
+	\noindent\ExamTitle\hfill\textbf{\ExamDate}
+	\begin{center}
+		\emph{Duration: 2 hours.}\\
+		\emph{Talking and Electronic devices are forbidden.}\\
+		\emph{Completely fill the correct squares!}
+	\end{center}
+	%%% end of the header
+	\vspace*{0.5cm}
+	\insertgroup{all}
+	\AMCcleardoublepage%
+	\AMCformBegin%
+	\noindent\ExamTitle\hfill\textbf{\ExamDate}
+	\begin{center}
+		\emph{Duration: 2 hours.}\\
+		\emph{Talking and Electronic devices are forbidden.}\\
+		\emph{Completely fill the correct squares!}
+	\end{center}
+	{\setlength{\parindent}{0pt}\hspace*{\fill}\AMCcodeGridInt{etu}{6}\hspace*{\fill}
+	\begin{minipage}[b]{6.5cm}
+		\(\longleftarrow{}\)\hspace{1cm} Write your name below and fill your \emph{id} number to the side.
+
+		\vspace{3ex}
+
+		\hfill\namefield{\fbox{
+				\begin{minipage}{.9\linewidth}
+					Name and Surname:
+
+					\vspace*{.5cm}\dotfill
+
+					\vspace*{.5cm}\dotfill
+					\vspace*{1mm}
+				\end{minipage}
+			}}\hfill\vspace{5ex}\end{minipage}\hspace*{\fill}
+	}
+	\AMCform%
+	\AMCcleardoublepage%
+\end{examcopy}
+\end{document}
