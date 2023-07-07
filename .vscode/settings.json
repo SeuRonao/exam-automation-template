@@ -34,14 +34,21 @@
         },
     ],
     "cSpell.words": [
+        "chktex",
+        "chktexrc",
         "directlua",
+        "isort",
         "jobspecific",
+        "latexindent",
         "luadirect",
         "lualatex",
         "nonstopmode",
+        "Numpy",
         "pathlib",
         "preprocess",
+        "pylint",
         "pythontex",
+        "Scipy",
         "xbar"
     ],
 }
